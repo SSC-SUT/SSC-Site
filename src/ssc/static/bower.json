@@ -1,0 +1,13 @@
+{
+  "name": "ssc-site",
+  "version": "1.0.0",
+  "authors": [
+    "moreka <m.r.karimi.j@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+      "bootstrap-sass-official": ">=3.2",
+      "holderjs": "*"
+  }
+}
