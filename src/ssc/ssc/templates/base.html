@@ -4,18 +4,21 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static "css/global.css" %}">
+    <link href="{% static "bower_components/toastr/toastr.min.css" %}" rel="stylesheet" type="text/css" />
     {% block  css %}
-        <link rel="stylesheet" href="{% static "css/global.css" %}">
+
     {% endblock %}
 </head>
 <body>
 {% block body %}
 {% endblock %}
 
+<script src="{% static "bower_components/jquery/dist/jquery.js" %}"></script>
+<script src="{% static "bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js" %}"></script>
+<script src="{% static "bower_components/holderjs/holder.js" %}"></script>
+<script src="{% static "bower_components/toastr/toastr.min.js" %}"></script>
 {% block js %}
-    <script src="{% static "bower_components/jquery/dist/jquery.js" %}"></script>
-    <script src="{% static "bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js" %}"></script>
-    <script src="{% static "bower_components/holderjs/holder.js" %}"></script>
 {% endblock %}
 </body>
 </html>

@@ -5,4 +5,5 @@ from . import views
 
 urlpatterns = patterns('',
     url(r'^$', views.index),
+    url(r'^folan$', views.workshop),
 )

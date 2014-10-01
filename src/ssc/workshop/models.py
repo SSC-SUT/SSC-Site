@@ -8,9 +8,11 @@ class Workshop(models.Model):
     full_description = models.TextField()  # In HTML format, incl. schedule, prerequisits, ...
     fee = models.IntegerField(default=0)
     date = models.DateTimeField(null=True)
-    length = models.IntegerField(null=True)
+    length = models.IntegerField(null=True)  # in hours
     lecturers = models.ManyToManyField(User, through='Lecturing', related_name='lectured_workshops', null=True)
     attendees = models.ManyToManyField(User, through='Attendance', related_name='attended_workshops', null=True)
+    lunch = models.TextField(max_length=50)
+    lunch_fee = models.IntegerField(default=0)
 
     def __unicode__(self):
         return self.name
@@ -22,6 +24,7 @@ class Attendance(models.Model):
     date_registered = models.DateTimeField(auto_now=True)
     transaction_number = models.CharField(max_length=10)
     payment = models.IntegerField()
+    has_lunch = models.BooleanField()
     is_valid = models.BooleanField(default=False)
 
 
@@ -30,3 +33,15 @@ class Lecturing(models.Model):
     workshop = models.ForeignKey(Workshop)
     payment = models.IntegerField()
     date_determined = models.DateTimeField(auto_now=True)
+
+
+class Resource(models.Model):
+    name = models.CharField(max_length=50)
+    filename = models.CharField(max_length=200)
+    is_public = models.BooleanField(default=True)
+    date_added = models.DateTimeField(auto_now=True)
+    description = models.TextField()
+    workshop = models.ForeignKey(Workshop)
+
+    def __unicode__(self):
+        return self.name

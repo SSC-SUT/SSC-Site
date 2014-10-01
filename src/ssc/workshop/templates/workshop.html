@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block body %}
+    {% include 'menu.html' %}
+
+    <div class="container main-container">
+        <div class="jumbotron">
+            <h1>ورکشاپ گازجعر</h1>
+            <p>توضیحات کوتاه</p>
+            <p>
+                مکان و زمان
+            </p>
+            <p><a id="register-button" class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="#myModal">ثبت ‌نام</a></p>
+        </div>
+        <div class="row">
+            <div class="col-md-3"><h4>ارائه‌دهنده‌ها</h4></div>
+            <div class="col-md-3">
+                <div class="media">
+                    <a class="pull-right" href="#">
+                      <img class="media-object img-circle" width="100px" src="{% static 'jresig.jpg' %}" alt="">
+                    </a>
+                    <div class="media-body">
+                      <h4 class="media-heading">جان رزیگ</h4>
+                      عضو هیئت علمی گازجعر
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="media">
+                    <a class="pull-right" href="#">
+                      <img class="media-object img-circle" width="100px" src="{% static 'jresig.jpg' %}" alt="">
+                    </a>
+                    <div class="media-body">
+                      <h4 class="media-heading">جان رزیگ</h4>
+                      عضو هیئت علمی گازجعر
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"><h4>توضیحات</h4></div>
+            <div class="col-md-9"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"><h4>قیمت</h4></div>
+            <div class="col-md-9"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"><h4>ناهار</h4></div>
+            <div class="col-md-9"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12"><h4>منابع</h4></div>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-1" >
+                <ul class="">
+                    <li>منبع ۱</li>
+                    <li>منبع ۲</li>
+                    <li>منبع ۳</li>
+                </ul>
+            </div>
+        </div>
+        <footer>
+            <p>&copy; ۲۰۱۴ - دانشگاه صنعتی شریف - دانشکده مهندسی کامپیوتر - انجمن علمی و فوق برنامه </p>
+        </footer>
+    </div>
+
+    <div class="modal fade" id="myModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">ثبت نام</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label for="trans-number" class="col-sm-4 control-label">شمار‌ه‌ی تراکنش</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="trans-number" placeholder="مانند ۶۷/۱۲۳۴۵">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="trans-date" class="col-sm-4 control-label">تاریخ واریز</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="trans-date" placeholder="مانند ۹۳/۰۴/۲۱">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="trans-time" class="col-sm-4 control-label">ساعت واریز</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="trans-time" placeholder="مانند ۲۲:۳۰">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-4 control-label">مبلغ واریزی</label>
+
+                            <div class="col-sm-8">
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="inputPassword3" placeholder="مانند ۲۰۰۰۰۰">
+                                    <div class="input-group-addon">ریال</div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-4">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"> مایل به دریافت ناهار هستم
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">بی‌خیال</button>
+                    <button type="button" class="btn btn-success" id="finish-register">اتمام ثبت ‌نام</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block js %}
+
+    <script type="text/javascript">
+
+    $("#finish-register").click(function() {
+        //TODO: send AJAX to server
+
+        $("#myModal").modal('hide');
+        toastr["success"]("پیش ثبت نام انجام شد.");
+        var a = $("#register-button")[0];
+        a.classList.add("disabled");
+        a.innerHTML = "پیش ثبت نام در حال بررسی";
+
+    });
+
+    </script>
+
+{% endblock %}
