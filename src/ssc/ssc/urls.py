@@ -10,5 +10,6 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     url(r'^logout$', workshop.views.logout_view),
-    url(r'^register_site$', workshop.views.register_view)
+    url(r'^register_site$', workshop.views.register_view),
+    url(r'^login_site$', workshop.views.login_view),
 )
