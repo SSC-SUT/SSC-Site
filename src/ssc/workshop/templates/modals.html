@@ -1,0 +1,62 @@
+<!-- Register -->
+<div class="modal fade" id="regModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span
+                        aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">ثبت نام در سایت</h4>
+            </div>
+            <div class="well quote">
+                در صورت بروز مشکل در ثبت نام و یا نداشتن اکانت CE فعال، به آدرس
+                <code>ssc@ce.sharif.edu</code>
+                درخواست ثبت نام خود را اعلام کنید.
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" method="post">
+                    <div class="form-group">
+                        <label for="user-studentID" class="col-sm-4 control-label">شماره‌ی دانشجویی</label>
+                        <!-- TODO: change font! -->
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="user-studentID" placeholder=" مانند 90123456 با اعداد لاتین">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-mail" class="col-sm-4 control-label">ایمیل</label>
+
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="user-mail" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-username" class="col-sm-4 control-label">اکانت CE</label>
+
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="user-username" placeholder="CE username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-password" class="col-sm-4 control-label">رمز عبور</label>
+
+                        <div class="col-sm-8">
+                            <input type="password" class="form-control" id="user-password" placeholder="password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-password-repeat" class="col-sm-4 control-label">تکرار رمز عبور</label>
+
+                        <div class="col-sm-8">
+                            <input type="password" class="form-control" id="user-password-repeat" placeholder="the same password">
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">بی‌خیال</button>
+                <button type="button" class="btn btn-success" id="site-register">ثبت ‌نام</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Register -->
