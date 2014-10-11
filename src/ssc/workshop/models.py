@@ -1,14 +1,16 @@
+# -*- coding: utf-8 -*-
+
 from django.db import models
 from django.contrib.auth.models import User
 
 
 class SiteUser(models.Model):
     user = models.OneToOneField(User)
-    studentID = models.CharField(max_length=8, default='90123456')
-    description = models.CharField(max_length=100, default=' ')
+    studentID = models.CharField(max_length=8, unique=True)
+    description = models.CharField(max_length=100, default=u'دانشجوی دانشکده‌ی کامپیوتر')
 
     def __unicode__(self):
-        return self.user.get_full_name()
+        return self.user.username
 
 
 class Workshop(models.Model):

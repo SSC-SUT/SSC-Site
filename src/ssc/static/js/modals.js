@@ -24,14 +24,19 @@ $(function() {
      */
 
     $("#site-register").click(function() {
+        var btn = $(this);
+        btn.addClass('disabled');
+
         var passwd = $("#user-password").val();
         var passwd_repeat = $("#user-password-repeat").val();
 
         if (passwd !== passwd_repeat) {
             toastr["error"]("رمز عبور و تکرار آن یکی نمی‌باشند");
+            btn.removeClass('disabled');
             return;
         }
 
+        var csrf = getCookie('csrftoken');
         var request = $.ajax({
             url: '/register_site',
             type: 'POST',
@@ -39,12 +44,17 @@ $(function() {
                 studentID: $("#user-studentID").val(),
                 username: $("#user-username").val(),
                 mail: $("#user-mail").val(),
-                password: passwd
+                password: passwd,
+                csrfmiddlewaretoken: csrf
+            },
+            headers: {
+                'X-CSRFToken': csrf
             }
         });
         request.done(function(response) {
-            console.log("Done", response);
+            btn.removeClass('disabled');
             var data = JSON.parse(response);
+
             if (data.status == 'fail') {
                 toastr["error"](data.message);
             }
@@ -54,6 +64,7 @@ $(function() {
             }
         });
         request.fail(function(response) {
+            btn.removeClass('disabled');
             console.log("Fail", response);
             toastr["error"]('خطا');
         });

@@ -11,7 +11,8 @@ $bootstrap-sass-asset-helper: (twbs-font-path("") != unquote('twbs-font-path("")
 
 @font-face {
   font-family: BYekan;
-  src: url('../fonts/byekan.otf') format("opentype");
+  src: url('../fonts/byekan.otf') format("opentype"),
+       url('../fonts/byekan.ttf') format("truetype");
 }
 
 //== Colors

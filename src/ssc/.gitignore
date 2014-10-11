@@ -3,3 +3,4 @@ static/bower_components/**
 .idea/**
 db.sqlite3
 **/*.css
+ssc/settings.py

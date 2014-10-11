@@ -7,7 +7,7 @@
     <div class="container main-container">
         <div class="jumbotron">
             <h1>
-                ورکشاپ
+کارسوق
                 {{ workshop.name }}
             </h1>
             <p>{{ workshop.breif_description }}</p>
@@ -25,7 +25,7 @@
                 <div class="col-md-3">
                     <div class="media">
                         <a class="pull-right" href="#">
-                          <img class="media-object img-circle" width="100px" src="{% static 'jresig.jpg' %}" alt="">
+                          <img class="media-object img-circle" width="100px" src="{% static 'images/jresig.jpg' %}" alt="resig">
                         </a>
                         <div class="media-body">
                           <h4 class="media-heading">{{ lect.get_full_name }}</h4>
@@ -36,13 +36,14 @@
             {% endfor %}
         </div>
 
-        <div class="row">
+        <div class="row ws-description">
             <div class="col-md-4">
-                <h4>توضیحات</h4>
+                <h4><img src="{% static 'images/study.png' %}" width="40px" alt="">
+                    توضیحات</h4>
                 {{ workshop.full_description|safe }}
             </div>
             <div class="col-md-4">
-                <h4>قیمت</h4>
+                <h4><img src="{% static 'images/dollar.png' %}" width="40px" alt=""> قیمت</h4>
                 {{ workshop.fee }}  ریال
                 <h4>ناهار</h4>
                 {{ workshop.lunch }} - {{ workshop.lunch_fee }} ریال
@@ -50,28 +51,12 @@
                 {{ workshop.fee|add:workshop.lunch_fee }} ریال
             </div>
             <div class="col-md-4">
-                <h4>منابع</h4>
+                <h4><img src="{% static 'images/resource.png' %}" width="40px" alt=""> منابع</h4>
                 <ul>
                     {% for resource in workshop.resource_set.all %}
                         <li><a href="{{ resource.filename }}">{{ resource.name }}</a></li>
                     {% endfor %}
                 </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-9"></div>
-        </div>
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-9"></div>
-        </div>
-        <div class="row">
-            <div class="col-md-12"></div>
-        </div>
-        <div class="row">
-            <div class="col-md-offset-1" >
-
             </div>
         </div>
         <footer>
